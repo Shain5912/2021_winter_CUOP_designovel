@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>"My 회사원 MBTI</title>
+    <meta name="description" content="나의 MBTI에 맞는 회사원&오피스룩 스타일을 추천해주는 테스트입니다.">
+
+    <meta property="og:type" content="website"> 
+    <meta property="og:title" content="나는 어떤 회사원?">
+    <meta property="og:description" content="MBTI로 나에게 찰떡인 오피스룩 알아보기!">
+    <meta property="og:image" content="https://designovel.netlify.app/item.jpg"> <!--sns로 공유할 때 나오는 이미지 수정-->
+    <meta property="og:url" content="https://designovel.netlify.app/">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="dali_style2.css">
+
+</head>
+<body class="container">
+    <nav class="navbar fixed-top navbar-dark bg-dark">
+        <a class="navbar-brand" href="https://dalihotel.co.kr/"><i>Dali hotel</i></a>
+    </nav>
+    <article class="start">
+        <br>
+        <h4 class="mt-5 text-center blinking"><b>My 회사원 MBTI</b></h4><br><br>
+        <img id =cover_img src="채원님ex.png"></a>
+        <br>
+        <img id=cover_img src="start_2.png"></a><br>
+
+        <button type="button" class="btn btn-dark blinking" onclick='start();'>▶ 테스트 시작하기 ◀</button>
+    </article>
+
+    <article class="question">
+<!-- 
+        <div class="progress mt-5">
+            <div class="progress-bar progress-bar-striped" role="progressbar" style="width: calc(100/12*1%)"></div>
+        </div> -->
+        
+
+        <div class="progress mt-5" style="height: 20px;">
+            <ion-icon name="rocket-outline"></ion-icon>
+            <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" style="width: calc(100/12*1%)" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        <img id = "img" alt="q">
+        <h5 id = "title" class="text-center mt-5">문제</h5>
+        <input id = "type" type="hidden" value="EI">
+        <br><br>
+        <button id="A" type="button" class="btn btn-light" onclick="this.blur();">Primary</button><br>
+        <button id="B" type="button" class="btn btn-light" onclick="this.blur();">Primary</button>
+
+    </article>
+
+    <article class="result">
+        <br><br>
+        <img id="animal" class="img" alt="animal"><br>
+        <img id ="image" class="img" alt="result">
+        <br>
+        <img id="explain" class="img" alt="explain"><br>
+        
+        <h5 class="text-center mt-10"><strong><br>'나'를 위한, 맞춤형 오피스룩!</strong></h5>
+        <a href id="link">
+            <img id ="item" class="item rounded-circle mt-5" alt="result">
+        </a>
+        <br><br>
+        <h5 class="text-center mt-10"><br>이런 오피스룩, <strong>찰떡궁합!</strong></h5>
+        <a href id="glink">
+            <img id ="goodimg" class="item rounded-circle mt-5" alt="goodimg">
+        </a>
+        <br><br>
+        <h5 class="text-center mt-10"><br>이런 오피스룩, <strong>개&고양이!</strong></h5>
+        <a href id="blink">
+            <img id ="badimg" class="item rounded-circle mt-5" alt="badimg">
+        </a>
+        <br><br>
+
+        <h5 class="text-center mt-10"><strong><br><br>My 회사원 MBTI 공유</strong></h5><br>
+        <div class="share addthis_inline_share_toolbox"></div><br>
+
+        <a class="mt-5 banner" href="https://dalihotel.co.kr/">
+
+            <img class="banner-img blinking" src="달리로고.png" alt="banner">
+            
+        </a>
+        <br><h5 class="text-center mt-10"><i>로맨틱 감성 오피스룩</i> <strong>달리호텔</strong> Click</h5>
+    </article>
+
+    <input type="hidden" id="EI" value="0">
+    <input type="hidden" id="SN" value="0">
+    <input type="hidden" id="TF" value="0">
+    <input type="hidden" id="JP" value="0">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script>
+        var num = 1;
+        var q = {
+            1: {"title": "설렘 반, 긴장 반! 처음 출근한 날.<br>사람들에게 자기소개하는 나는", "type": "EI", "A": "첫인상이 중요한 법! 큰 목소리로!<br>조금의 TMI는 덤!", "B": "떨리지만, 긴장을 참고 간단하게.<br>이름과 나이, 그리고 인사말만 읊는다.", "img": "fashion.jpg"},
+            2: {"title": "팀 회식 1차 후,<br>2차 참석 여부의 갈림길에 선 나는", "type": "EI", "A": "이대로 헤어지기는 아쉽다.<br>노래방으로 가자며 팀원들을 이끈다.", "B": "이미 오늘치 사회성을 다 썼다..<br>더 이상은 무리니까 곧장 집으로 간다.", "img": "채원님ex.png"},
+            3: {"title": "코로나 시대, 재택근무 or 출근.<br>둘 중 하나를 선택해야 하는 나는", "type": "EI", "A": "직접 선배들한테 물어보며 배우는 게 좋고,<br>모두와 함께 일하는 게 더 즐거우니 출근!", "B": "진행 중인 프로젝트는 비대면으로도 충분!<br>편한 재택근무를 택한다.", "img": "fashion.jpg"},
+
+            4: {"title": "평일 점심시간.<br>점심메뉴를 고르라고 하는 팀장님.<br>휴대폰으로 배달 앱을 켠 나는", "type": "SN", "A": "번지르르한 사진은 믿을 수 없다.<br>리뷰 하나하나를 꼼꼼히 읽어보고 정한다.", "B": "추천 식당으로 뜬 사진에서<br>JMT의 기운이 느껴진다. 결정 끝!", "img": "채원님ex.png"},
+            5: {"title": "신입사원을 위한 세미나를 들었다.<br>동기가 후기를 물을 때 나는", "type": "SN", "A": "강사님이 너무 설명을 잘 해주셔서<br>홀린 듯이 들었지 뭐야.", "B": "지금 개발 중인 서비스에 대해서였는데,<br>확실히 고객 유입이 잘 될 것 같더라.", "img": "fashion.jpg"},
+            6: {"title": "드디어 첫 프레젠테이션!<br>모든 발표는 PPT가 중요한 법.<br>PPT를 만드는 나는", "type": "SN", "A": "PPT가 예뻐야 사람들이 집중해서 잘 듣지.<br>디자인 감각을 최대한 동원하여 예쁘게!", "B": "한눈에 딱 들어오는 PPT가 최고 아니겠어?<br>단순하고 깔끔한 테마를 사용한다.", "img": "채원님ex.png"},
+            
+            7: {"title": "첫 프레젠테이션을 마쳤다.<br>처음이니 당연히 부족한 점이 있는데..<br>당장 내가 듣고 싶은 말은", "type": "TF", "A": "PPT에서 목차를 수정하면 더 좋을 겁니다.<br>발전하는 모습 기대할게요.", "B": "처음이라 어려운 점이 많았죠?<br>피드백은 천천히 말해줄게요. 수고했어요.", "img": "fashion.jpg"},
+            8: {"title": "친한 입사동기가 보관하고 있던<br>중요한 USB가 없어졌다..!<br>안 보인다며 울먹이는 동기에게 나는", "type": "TF", "A": "상황 해결이 동기를 위한 일!<br>다시 한번 찾아보자며 동기를 이끈다.", "B": "나 같아도 패닉 상태일 것이다..<br>동기의 어깨를 두들겨주며 위로해준다.", "img": "채원님ex.png"},
+            9: {"title": "인턴이 들어왔다.<br>자신감이 부족해 보이는 우리 팀 인턴.<br>선배로서 도움을 주고 싶은 나는", "type": "TF", "A": "간단한 작업의 참고 사이트 등을 알려주며,<br>업무 관련 실질적인 조언을 해준다.", "B": "나도 막 입사했을 때 실수도 많이 하고<br>깨지며 적응했다며, 인턴에게 용기를 준다.", "img": "채원님ex.png"},
+
+            10: {"title": "대표님이 사무실에 방문하신다고?!<br>어질러진 책상을 청소하기로 한 나는", "type": "JP", "A": "아무리 급해도 대충 치울 수는 없다!<br>먼지 한톨 없게 대청소를 해버린다.", "B": "책상 위에 어질러진 것들을 모두 모아<br>서랍에 넣어버린다. 안 보이면 그만!", "img": "채원님ex.png"},
+            11: {"title": "팀 단합을 위한 워크숍.<br>사전답사를 가기로 한 나와 김대리님.<br>구체적인 계획이 없는 상황에서 나는", "type": "JP", "A": "꼼꼼하게 짠 계획이 없으면 불안하다.<br>시간별 구체적인 계획을 추가한다.", "B": "어차피 계획대로 잘 안 된다.<br>걱정 없이 답사에 나선다.", "img": "채원님ex.png"},
+            12: {"title": "내일은 무슨 옷을 입을까?<br>매일 출근 룩을 고르는 나는", "type": "JP", "A": "전날 자기 전에 입을 옷을 정해둔다.<br>머리부터 발끝까지 정해두는 치밀함!", "B": "뭘 미리 계획해두기까지 해?<br>그냥 아침에 훑어보며 옷을 집어 든다.", "img": "채원님ex.png"}
+        }
+        var result ={
+            "ISTJ": {"animal": "istj_1.png", "explain": "istj_2.png", "link":"https://m.dalihotel.co.kr/product/detail.html?product_no=3441&cate_no=32&display_group=1", "glink":"https://m.dalihotel.co.kr/product/detail.html?product_no=3446&cate_no=62&display_group=1", "blink":"https://m.dalihotel.co.kr/product/detail.html?product_no=3446&cate_no=62&display_group=1", "image": "예시이미지2.PNG", "item": "예시이미지2.PNG", "goodimg": "예시이미지.png", "badimg": "예시이미지.png"},
+            "ISFJ": {"animal": "isfj_1.png", "explain": "isfj_2.png", "link":"https://m.dalihotel.co.kr/product/detail.html?product_no=3441&cate_no=32&display_group=1", "glink":"https://m.dalihotel.co.kr/product/detail.html?product_no=3446&cate_no=62&display_group=1", "blink":"https://m.dalihotel.co.kr/product/detail.html?product_no=3446&cate_no=62&display_group=1", "image": "예시이미지2.PNG", "item": "예시이미지2.PNG", "goodimg": "예시이미지.png", "badimg": "예시이미지.png"},
+            "ISTP": {"animal": "istp_1.png", "explain": "istp_2.png", "link":"https://m.dalihotel.co.kr/product/detail.html?product_no=3441&cate_no=32&display_group=1", "glink":"https://m.dalihotel.co.kr/product/detail.html?product_no=3446&cate_no=62&display_group=1", "blink":"https://m.dalihotel.co.kr/product/detail.html?product_no=3446&cate_no=62&display_group=1", "image": "예시이미지2.PNG", "item": "예시이미지2.PNG", "goodimg": "예시이미지.png", "badimg": "예시이미지.png"},
+            "ISFP": {"animal": "isfp_1.png", "explain": "isfp_2.png", "link":"https://m.dalihotel.co.kr/product/detail.html?product_no=3441&cate_no=32&display_group=1", "glink":"https://m.dalihotel.co.kr/product/detail.html?product_no=3446&cate_no=62&display_group=1", "blink":"https://m.dalihotel.co.kr/product/detail.html?product_no=3446&cate_no=62&display_group=1", "image": "예시이미지2.PNG", "item": "예시이미지2.PNG", "goodimg": "예시이미지.png", "badimg": "예시이미지.png"},
+            "INFJ": {"animal": "infj_1.png", "explain": "infj_2.png", "link":"https://m.dalihotel.co.kr/product/detail.html?product_no=3441&cate_no=32&display_group=1", "glink":"https://m.dalihotel.co.kr/product/detail.html?product_no=3446&cate_no=62&display_group=1", "blink":"https://m.dalihotel.co.kr/product/detail.html?product_no=3446&cate_no=62&display_group=1", "image": "예시이미지2.PNG", "item": "예시이미지2.PNG", "goodimg": "예시이미지.png", "badimg": "예시이미지.png"},
+            "INTJ": {"animal": "intj_1.png", "explain": "intj_2.png", "link":"https://m.dalihotel.co.kr/product/detail.html?product_no=3441&cate_no=32&display_group=1", "glink":"https://m.dalihotel.co.kr/product/detail.html?product_no=3446&cate_no=62&display_group=1", "blink":"https://m.dalihotel.co.kr/product/detail.html?product_no=3446&cate_no=62&display_group=1", "image": "예시이미지2.PNG", "item": "예시이미지2.PNG", "goodimg": "예시이미지.png", "badimg": "예시이미지.png"},
+            "INFP": {"animal": "infp_1.png", "explain": "infp_2.png", "link":"https://m.dalihotel.co.kr/product/detail.html?product_no=3441&cate_no=32&display_group=1", "glink":"https://m.dalihotel.co.kr/product/detail.html?product_no=3446&cate_no=62&display_group=1", "blink":"https://m.dalihotel.co.kr/product/detail.html?product_no=3446&cate_no=62&display_group=1", "image": "예시이미지2.PNG", "item": "예시이미지2.PNG", "goodimg": "예시이미지.png", "badimg": "예시이미지.png"},
+            "INTP": {"animal": "intp_1.png", "explain": "intp_2.png", "link":"https://m.dalihotel.co.kr/product/detail.html?product_no=3441&cate_no=32&display_group=1", "glink":"https://m.dalihotel.co.kr/product/detail.html?product_no=3446&cate_no=62&display_group=1", "blink":"https://m.dalihotel.co.kr/product/detail.html?product_no=3446&cate_no=62&display_group=1", "image": "예시이미지2.PNG", "item": "예시이미지2.PNG", "goodimg": "예시이미지.png", "badimg": "예시이미지.png"},
+            "ESTP": {"animal": "estp_1.png", "explain": "estp_2.png", "link":"https://m.dalihotel.co.kr/product/detail.html?product_no=3441&cate_no=32&display_group=1", "glink":"https://m.dalihotel.co.kr/product/detail.html?product_no=3446&cate_no=62&display_group=1", "blink":"https://m.dalihotel.co.kr/product/detail.html?product_no=3446&cate_no=62&display_group=1", "image": "예시이미지2.PNG", "item": "예시이미지2.PNG", "goodimg": "예시이미지.png", "badimg": "예시이미지.png"},
+            "ESFP": {"animal": "esfp_1.png", "explain": "esfp_2.png", "link":"https://m.dalihotel.co.kr/product/detail.html?product_no=3441&cate_no=32&display_group=1", "glink":"https://m.dalihotel.co.kr/product/detail.html?product_no=3446&cate_no=62&display_group=1", "blink":"https://m.dalihotel.co.kr/product/detail.html?product_no=3446&cate_no=62&display_group=1", "image": "예시이미지2.PNG", "item": "예시이미지2.PNG", "goodimg": "예시이미지.png", "badimg": "예시이미지.png"},
+            "ESTJ": {"animal": "estj_1.png", "explain": "estj_2.png", "link":"https://m.dalihotel.co.kr/product/detail.html?product_no=3441&cate_no=32&display_group=1", "glink":"https://m.dalihotel.co.kr/product/detail.html?product_no=3446&cate_no=62&display_group=1", "blink":"https://m.dalihotel.co.kr/product/detail.html?product_no=3446&cate_no=62&display_group=1", "image": "예시이미지2.PNG", "item": "예시이미지2.PNG", "goodimg": "예시이미지.png", "badimg": "예시이미지.png"},
+            "ESFJ": {"animal": "esfj_1.png", "explain": "esfj_2.png", "link":"https://m.dalihotel.co.kr/product/detail.html?product_no=3441&cate_no=32&display_group=1", "glink":"https://m.dalihotel.co.kr/product/detail.html?product_no=3446&cate_no=62&display_group=1", "blink":"https://m.dalihotel.co.kr/product/detail.html?product_no=3446&cate_no=62&display_group=1", "image": "예시이미지2.PNG", "item": "예시이미지2.PNG", "goodimg": "예시이미지.png", "badimg": "예시이미지.png"},
+            "ENFP": {"animal": "enfp_1.png", "explain": "enfp_2.png", "link":"https://m.dalihotel.co.kr/product/detail.html?product_no=3441&cate_no=32&display_group=1", "glink":"https://m.dalihotel.co.kr/product/detail.html?product_no=3446&cate_no=62&display_group=1", "blink":"https://m.dalihotel.co.kr/product/detail.html?product_no=3446&cate_no=62&display_group=1", "image": "예시이미지2.PNG", "item": "예시이미지2.PNG", "goodimg": "예시이미지.png", "badimg": "예시이미지.png"},
+            "ENTP": {"animal": "entp_1.png", "explain": "entp_2.png", "link":"https://m.dalihotel.co.kr/product/detail.html?product_no=3441&cate_no=32&display_group=1", "glink":"https://m.dalihotel.co.kr/product/detail.html?product_no=3446&cate_no=62&display_group=1", "blink":"https://m.dalihotel.co.kr/product/detail.html?product_no=3446&cate_no=62&display_group=1", "image": "예시이미지2.PNG", "item": "예시이미지2.PNG", "goodimg": "예시이미지.png", "badimg": "예시이미지.png"},
+            "ENFJ": {"animal": "enfj_1.png", "explain": "enfj_2.png", "link":"https://m.dalihotel.co.kr/product/detail.html?product_no=3441&cate_no=32&display_group=1", "glink":"https://m.dalihotel.co.kr/product/detail.html?product_no=3446&cate_no=62&display_group=1", "blink":"https://m.dalihotel.co.kr/product/detail.html?product_no=3446&cate_no=62&display_group=1", "image": "예시이미지2.PNG", "item": "예시이미지2.PNG", "goodimg": "예시이미지.png", "badimg": "예시이미지.png"},
+            "ENTJ": {"animal": "entj_1.png", "explain": "entj_2.png", "link":"https://m.dalihotel.co.kr/product/detail.html?product_no=3441&cate_no=32&display_group=1", "glink":"https://m.dalihotel.co.kr/product/detail.html?product_no=3446&cate_no=62&display_group=1", "blink":"https://m.dalihotel.co.kr/product/detail.html?product_no=3446&cate_no=62&display_group=1", "image": "예시이미지2.PNG", "item": "예시이미지2.PNG", "goodimg": "예시이미지.png", "badimg": "예시이미지.png"}
+        }
+        function start() {
+
+            $(".start").hide();
+            $(".question").show();
+            next();
+        }
+        
+        $("#A").click(function(){
+            var type = $("#type").val()
+            var preValue = $("#"+type).val()
+            $("#"+type).val(parseInt(preValue)+1);
+            next();
+        });
+
+        $("#B").click(function(){
+            next();
+        });
+
+        function next(){
+            if (num==13){
+                $(".question").hide();
+                $(".result").show();
+                var mbti = "";
+                
+                ($("#EI").val()<2) ? mbti+="I":mbti+="E";
+                ($("#SN").val()<2) ? mbti+="N":mbti+="S";
+                ($("#TF").val()<2) ? mbti+="F":mbti+="T";
+                ($("#JP").val()<2) ? mbti+="P":mbti+="J";
+                alert(mbti);
+
+                $("#image").attr("src", result[mbti]["image"]);
+                $("#link").attr("href", result[mbti]["link"]);
+                $("#glink").attr("href", result[mbti]["glink"]);
+                $("#blink").attr("href", result[mbti]["blink"]);
+                $("#item").attr("src", result[mbti]["item"]);
+                $("#goodimg").attr("src", result[mbti]["goodimg"]);
+                $("#badimg").attr("src", result[mbti]["badimg"]);
+                $("#animal").attr("src", result[mbti]["animal"]);
+                $("#explain").attr("src", result[mbti]["explain"]);
+                
+            } else {
+                $(".progress-bar").attr('style','width: calc(100/12*'+num+'%)');
+                $("#img").attr("src", q[num]["img"]);
+                $("#title").html(q[num]["title"]);
+                $("#type").val(q[num]["type"]);
+                $("#A").html(q[num]["A"]);
+                $("#B").html(q[num]["B"]);
+            num++;
+            }
+        }
+
+    </script>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5feaad4f5d2ff7a8"></script>
+
+
+
+</body>
+</html>
