@@ -1,0 +1,110 @@
+.start{
+    display: flex;
+    flex-direction: column;
+}
+body {
+    padding: 3%;
+    margin: 5%;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    font-family: 'Noto Sans KR', sans-serif;
+}
+article {
+    display: flex;
+    flex-direction: column;
+}
+.copyright-text {
+    font-family: "Noto Sans KR";
+    font-size: 12px;
+    color: #703027;
+}
+
+
+
+article{
+    display : flex;
+    flex-direction: column;
+}
+
+.question{
+    display: none;
+}
+
+.result{
+    display: none;
+}
+
+#img{
+    padding: 10%;
+    width: 100%;
+    height: auto;
+    margin:0 auto;
+}
+
+.share{
+
+    margin:0 auto;
+}
+
+.banner{
+    text-align: center;
+    display: inline-block;
+    justify-content: center;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.item{
+    text-align: center;
+    width: 200px;
+    height: 200px;
+}
+
+#cover_img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin:0 auto;
+}
+
+.blinking{
+
+    -webkit-animation:blink 0.5s ease-in-out infinite alternate;
+    
+    -moz-animation:blink 0.5s ease-in-out infinite alternate;
+    
+    animation:blink 0.5s ease-in-out infinite alternate;
+    
+}
+
+@-webkit-keyframes blink{
+
+    0% {opacity:0;}
+    
+    100% {opacity:1;}
+    
+}
+    
+@-moz-keyframes blink{
+    
+    0% {opacity:0;}
+    
+    100% {opacity:1;}
+    
+}
+    
+@keyframes blink{
+    
+    0% {opacity:0;}
+    
+    100% {opacity:1;}
+    
+}
+
+.btn-light:focus{
+    border: none!important;
+    background: transparent!important;
+    outline: none!important;
+    box-shadow: none!important;
+    background-image: linear-gradient(to bottom,#fff 0,#e0e0e0 100%)!important;
+}
